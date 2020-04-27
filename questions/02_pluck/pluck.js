@@ -18,6 +18,13 @@ returns { a: 1, c: 42};
 
 function pluck(obj, elements) {
   // YOUR CODE
+let arr = {}
+for (let keys in obj){
+  if (elements.includes(keys)){
+    arr[keys] = obj[keys]
+  }
+}
+return arr;
 }
 
 module.exports = { pluck };
