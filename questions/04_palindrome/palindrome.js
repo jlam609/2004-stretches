@@ -3,8 +3,7 @@
 
 const validPalindrome = (str) => {
   //YOUR CODE
-  str = str.toString().split(' ').join('').split('!').join('')
-  console.log(str)
+  str = str.toString().split(',').join('').split('!').join('').split(' ').join('')
   let i = 0;
   let j = str.length - 1;
   while (i <= j){
