@@ -1,6 +1,5 @@
 const lockBox = (code, message) => {
   // write code here
-  this.prototype = lockBox;
   if (typeof message !== 'string' || typeof code !== 'number') throw 'invalid type';
   let accessCode = code;
   let secretMessage = message;
