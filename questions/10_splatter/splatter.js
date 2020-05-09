@@ -1,13 +1,13 @@
 //write the splatter function
 
-const splatter = (arg) => {
+const splatter = (...arg) => {
   //write code here
-  let total = 0
-  for (let items in arg){
-    console.log(arg[items])
-  total += arg[items]
-  }
-  return total
+  return arg.reduce((acc, item) => {
+    Object.entries(item).forEach( ([key, value]) => {
+      acc += value;
+    })
+    return acc
+  }, 0)
 };
 
 module.exports = { splatter };
