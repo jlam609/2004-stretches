@@ -16,17 +16,16 @@ const movieposter = (arr) => {
   }
   let stars = ''
   while (stars.length < length) stars += '*'
-  arr.push(stars); arr.unshift(stars)
-  console.log(arr)
-  arr = arr.map(elem => {
+  arr1 = arr.map(elem => {
     elem = `* ${elem} `
     while(elem.length < length - 1){
       elem += ' '
     }
     elem += '*'
-    console.log(elem)
+    return elem
   })
-  return arr.join('')
+  arr1.push(stars); arr1.unshift(stars)
+  return arr1.join('\n')
 };
 
 module.exports = { movieposter };
