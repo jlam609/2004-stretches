@@ -21,9 +21,11 @@
 
 const getrootvalue = (obj, val) => {
     for (let keys in obj){
-        if (Array.isArray(obj[keys] && (obj[keys]).includes(val))) return obj
+        if (typeof obj[keys] === 'object' && !Array.isArray(obj[keys])){
+            if (getrootvalue(obj[keys], val)) return keys
+        }
         else {
-            return getrootvalue(obj[keys], val)
+            if (obj[keys].includes(val)) return keys
         }
     }
     return null
