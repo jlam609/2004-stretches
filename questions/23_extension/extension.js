@@ -2,9 +2,14 @@
 
 const extensions = (func) => {
     if (typeof func !== 'function') throw new Error('must be a function')
-    return function(...args){
-    console.log(extensions.call({func}, [...args]))
+    return function(a){
+        if (typeof a !== 'number')throw new Error('must be number')
+        return function(b){
+            if (typeof b !== 'number')throw new Error('must be number')
+            return func(a,b)
+        }
     }
+
 };
 
 module.exports = { extensions };
