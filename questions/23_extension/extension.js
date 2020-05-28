@@ -9,7 +9,6 @@ const extensions = (func) => {
             return func(a,b)
         }
     }
-
 };
 
 module.exports = { extensions };
