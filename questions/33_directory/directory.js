@@ -12,14 +12,22 @@
 
 const directory = (obj) => {
   //code in here
-  let map = {}
-  for (let key in obj){
-     let arr = `${key}`
-    while (obj[key].hasOwnProperty()){
-      arr += directory((obj[key]))
+  function makeString(obj, str = '', map = {}){
+    for (let keys in obj){
+      str += keys
+      if (typeof obj[keys] === 'object' && !Array.isArray(obj[keys])){
+        str += str === '' ? keys:`/${keys}`
+        makeString(obj[keys], str, map)
+      }
+      else{
+        map[str] = obj[keys]
+        str = ''
+      }
     }
-    console.log(arr)
+    console.log(map)
+    return map
   }
+  return makeString(obj)
 };
 
 module.exports = { directory };
