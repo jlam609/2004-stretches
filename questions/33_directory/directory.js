@@ -13,15 +13,14 @@
 const directory = (obj) => {
   //code in here
   function makeString(obj, str = '', map = {}){
-    for (let keys in obj){
-      str += keys
-      if (typeof obj[keys] === 'object' && !Array.isArray(obj[keys])){
-        str += str === '' ? keys:`/${keys}`
-        makeString(obj[keys], str, map)
+    let objKeys = Object.keys(obj)
+    for (let i = 0; i < objKeys.length; i++){
+      str += str === '' ? objKeys[i]:`/${objKeys[i]}`
+      if (typeof obj[objKeys[i]] === 'object' && !Array.isArray(obj[objKeys[i]])){
+        makeString(obj[objKeys[i]], str, map)
       }
       else{
-        map[str] = obj[keys]
-        str = ''
+        map[str] = obj[objKeys[i]]
       }
     }
     console.log(map)
