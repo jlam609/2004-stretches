@@ -14,10 +14,11 @@ const directory = (obj) => {
   //code in here
   let map = {}
   for (let key in obj){
-    arr = []
+     let arr = `${key}`
     while (obj[key].hasOwnProperty()){
-      directory((obj[key]), arr)
+      arr += directory((obj[key]))
     }
+    console.log(arr)
   }
 };
 
