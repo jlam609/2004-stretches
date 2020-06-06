@@ -5,13 +5,12 @@
 const weave = (...arr) => {
   //enter code here
   let newArr = []
+  while (arr.filter(elem => elem.length > 0).length > 0) {
   for (let i = 0; i < arr.length; i++){
-    while (arr){
     if (!Array.isArray(arr[i])) throw new Error('must be an array')
-    newArr.push(arr[i].shift() ? arr[i].shift : null)
+    newArr.push(arr[i][0] !== undefined ? arr[i].shift() : null)
     }
   }
-console.log(newArr)
 return newArr
 };
 
