@@ -1,13 +1,9 @@
 const decypher = (...str) => {
   //YOUR CODE HERE
   str = str.join('').split(' ')
-  let num = ''
   let numbers = '1234567890'
-  let last
-  let second
-  let len
-  let arr = []
   return str.map(elem => {
+    let num = '', last, second, trans
     for (let i = 0; i < elem.length; i++){
     if (numbers.indexOf(elem[i]) >= 0) {
       num += elem[i]
@@ -17,9 +13,9 @@ const decypher = (...str) => {
     }
     second = elem[elem.length-1]
   }
-  len = num.length
-  num = String.fromCharCode(num)
-  return `${num}${second}${elem.slice(len, elem.length - 2)}${last}`
+
+  trans = String.fromCharCode(num)
+  return elem.slice(num.length + 1) !== '' ? `${trans}${second}${elem.slice(num.length + 1, elem.length - 1)}${last}` : `${trans}${last}`
   }).join(' ')
 };
 module.exports = { decypher };
