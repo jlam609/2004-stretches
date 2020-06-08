@@ -20,6 +20,6 @@ const decypher = (...str) => {
   len = num.length
   num = String.fromCharCode(num)
   return `${num}${second}${elem.slice(len, elem.length - 2)}${last}`
-  })
+  }).join(' ')
 };
 module.exports = { decypher };
