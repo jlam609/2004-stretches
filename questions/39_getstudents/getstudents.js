@@ -7,14 +7,20 @@ const axios = require('./axios');
 const getStudent = (name) => {
   if (typeof name !== 'string') throw new Error('must be string')
   //code in here
-  return axios.get(`https://fullstack.com/api/cohort2004/`)
+  return axios.get(`https://fullstack.com/api/cohort2004`)
   .then(res => {
-    let length = res.data.length
-    let student = Array.from(res.data).filter(elem => {
-      console.log(elem)
-      elem.name === name
+    for (let student in res.data){
+      if (res.data[student].name === name){
+        return ({
+          count:Object.values(res.data).length,
+          student:{...res.data[student]}
+        })
+      }
+    }
+    return ({
+      count:Object.values(res.data).length,
+      student: "no student found"
     })
-    return length, student 
   })
   .catch(e => {throw new Error(e)})
 
