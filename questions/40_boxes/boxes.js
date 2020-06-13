@@ -7,7 +7,6 @@ class Box{
     }
     pack = (color, capacity) => {
         this.contents.push(color)
-        console.log(this.contents[0])
     }
 }
 module.exports = { Box };
