@@ -21,11 +21,10 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case types.ADD_TODO:
       return[{
-      ...state,
       text: action.text,
       completed:false,
-      id: state.length + 1
-    }]
+      id: state.length},
+     ...state]
     case types.DELETE_TODO:
       return (
       state.filter(todo => todo.id !== action.id)
