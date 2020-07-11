@@ -7,20 +7,12 @@
 
 const twoNumberSum = (arr, target) => {
   //write code here
-  arr = arr.sort((a,b) => a-b)
-  let i = 0
-  let j = arr.length-1
+  let map = {}
   let res = []
-  while (i< j){
-    let sum = arr[i] + arr[j]
-    if (sum === target ) {
-      res.push(arr[i],arr[j])
-      i++, j--
-    }
-    if (sum < target) i++
-    if (sum > target) j--
+  for (let i = 0; i < arr.length; i++){
+    if (map[arr[i]]) res.push(map[arr[i]], arr[i])
+    else map[target-arr[i]] = arr[i]
   }
-  console.log(res)
   return res
 };
 
