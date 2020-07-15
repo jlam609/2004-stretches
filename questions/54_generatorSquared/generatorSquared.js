@@ -4,15 +4,10 @@
 
 //write your function here
 
-const sqauredGen = (num1, num2) => {
-    return {
-        next: () => {
-            let i = num1 + 1
-            while (i <= 1) i++
-            return { 
-                value: i**2
-            }
-        }
+function* sqauredGen(num, max){
+    while (num < max){
+        num++;
+        yield num * num;
     }
 }
 module.exports = { sqauredGen };
